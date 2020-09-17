@@ -7,34 +7,34 @@ import StyledViewListView from "../../styles/containers/views/StyledViewListView
 const ViewListView = ({ appState }) => {
   return (
     <StyledViewListView className="view-list-view">
-      {appState.state.currentList.hasItems && (
-        <div className="list-item-card-wrapper">
-          {appState.state.items.map((item) => {
-            if (item.listID === appState.state.currentList.id)
-              return (
-                <Card
-                  appState={appState}
-                  key={item.id}
-                  item={item}
-                  cardType={CARDS.LIST_ITEM}
-                  handleClick={(event) => {
-                    if (event.ctrlKey) {
-                      return appState.dispatch({
-                        type: APP_ACTIONS.DELETE_LIST_ITEM,
-                        payload: { id: item.id },
-                      });
-                    }
-                  }}
-                />
-              );
-            return null;
-          })}
-        </div>
-      )}
-      <CommonButton
-        text="Create Item"
-        onClick={() => appState.dispatch({ type: VIEWS.CREATE_LIST_ITEM })}
-      />
+      <div className="list-item-card-wrapper">
+        {appState.state.items.map((item) => {
+          if (item.listID === appState.state.currentList.id)
+            return (
+              <Card
+                appState={appState}
+                key={item.id}
+                item={item}
+                cardType={CARDS.LIST_ITEM}
+                handleClick={(event) => {
+                  if (event.ctrlKey) {
+                    return appState.dispatch({
+                      type: APP_ACTIONS.DELETE_LIST_ITEM,
+                      payload: { id: item.id },
+                    });
+                  }
+                }}
+              />
+            );
+          return null;
+        })}
+      </div>
+      <div className="wrapper">
+        <CommonButton
+          text="Create Item"
+          onClick={() => appState.dispatch({ type: VIEWS.CREATE_LIST_ITEM })}
+        />
+      </div>
     </StyledViewListView>
   );
 };

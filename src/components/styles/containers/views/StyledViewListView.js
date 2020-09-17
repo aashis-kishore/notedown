@@ -3,16 +3,21 @@ import styled from "styled-components";
 const StyledViewListView = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: 60%;
 
   .list-item-card-wrapper {
-    max-height: 80%;
-    min-width: 25%;
-    max-width: 50%;
+    min-height: 45%;
+    max-height: 90%;
+    width: 100%;
     overflow-y: auto;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
   }
 `;
 
