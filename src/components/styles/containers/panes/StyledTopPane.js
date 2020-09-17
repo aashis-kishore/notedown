@@ -7,7 +7,8 @@ const StyledTopPane = styled.div`
   height: 5vh;
 
   .left-pane-hidden,
-  .darkTheme {
+  .darkTheme,
+  .home {
     color: ${(props) => props.theme.toggleButton.secondary};
   }
 `;

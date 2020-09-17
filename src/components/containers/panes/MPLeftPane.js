@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { VIEWS } from "../../../hooks/useAppState";
+import { APP_ACTIONS, VIEWS } from "../../../hooks/useAppState";
 import Card, { CARDS } from "../../cards/Card";
 import StyledMPLeftPane from "../../styles/containers/panes/StyledMPLeftPane";
 import { AppContext } from "../App";
@@ -15,12 +15,18 @@ const MPLeftPane = ({ animationStyle }) => {
           key={list.id}
           list={list}
           cardType={CARDS.LIST}
-          handleClick={() =>
-            appState.dispatch({
+          handleClick={(event) => {
+            if (event.ctrlKey) {
+              return appState.dispatch({
+                type: APP_ACTIONS.DELETE_LIST,
+                payload: { id: list.id },
+              });
+            }
+            return appState.dispatch({
               type: VIEWS.TOGGLE_VIEW_LIST,
               payload: { id: list.id },
-            })
-          }
+            });
+          }}
         />
       ))}
     </StyledMPLeftPane>

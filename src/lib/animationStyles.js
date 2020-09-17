@@ -6,3 +6,11 @@ export const mplpAnimationStyle = (leftPaneHidden) => {
     },
   };
 };
+
+export const viewAnimationStyle = () => {
+  return {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  };
+};

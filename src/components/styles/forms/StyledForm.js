@@ -16,8 +16,8 @@ const StyledForm = styled.form`
   label {
     user-select: none;
     font-size: 1.4rem;
-    background: ${(props) => props.theme.secondary};
-    color: ${(props) => props.theme.primary};
+    background: ${(props) => props.theme.tertiary};
+    color: ${(props) => props.theme.secondary};
     border-radius: 2px;
     padding: 0.5rem;
     letter-spacing: 2px;

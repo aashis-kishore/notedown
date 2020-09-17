@@ -4,6 +4,7 @@ export default class List {
   constructor(listName) {
     this.id = List.getID();
     this.listName = listName;
+    this.hasItems = false;
   }
 
   static getID() {

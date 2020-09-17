@@ -1,12 +1,11 @@
-import React, { createContext, useContext } from "react";
+import React, { useContext } from "react";
 import { VIEWS } from "../../../hooks/useAppState";
 import { AppContext } from "../App";
 import CreateListView from "./CreateListView";
 import HomeView from "./HomeView";
 import ViewListView from "./ViewListView";
 import CreateListItemView from "./CreateListItemView";
-
-const ViewContext = createContext(true);
+import StyledView from "../../styles/containers/views/StyledView";
 
 const View = () => {
   const appState = useContext(AppContext);
@@ -23,7 +22,7 @@ const View = () => {
     view = <CreateListItemView appState={appState} />;
   else view = <p>Unknown View</p>;
 
-  return <ViewContext.Provider value={appState}>{view}</ViewContext.Provider>;
+  return <StyledView className="view">{view}</StyledView>;
 };
 
 export default View;

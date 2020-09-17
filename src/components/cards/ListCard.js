@@ -1,9 +1,16 @@
 import React from "react";
 import StyledListCard from "../styles/cards/StyledListCard";
 
-const ListCard = ({ list, handleClick }) => {
+const ListCard = ({ appState, list, handleClick }) => {
   return (
-    <StyledListCard className="list-card" onClick={handleClick}>
+    <StyledListCard
+      className={`list-card${
+        appState.state.currentList && appState.state.currentList.id === list.id
+          ? " card-active"
+          : ""
+      }`}
+      onClick={handleClick}
+    >
       <h3 className="list-card-title">{list.listName}</h3>
     </StyledListCard>
   );

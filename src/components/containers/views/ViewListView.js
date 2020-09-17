@@ -1,19 +1,41 @@
 import React from "react";
-import { VIEWS } from "../../../hooks/useAppState";
+import { APP_ACTIONS, VIEWS } from "../../../hooks/useAppState";
 import CommonButton from "../../buttons/CommonButton";
-import StyledView from "../../styles/containers/views/StyledView";
+import Card, { CARDS } from "../../cards/Card";
 import StyledViewListView from "../../styles/containers/views/StyledViewListView";
 
 const ViewListView = ({ appState }) => {
   return (
-    <StyledView>
-      <StyledViewListView>
-        <CommonButton
-          text="Create Item"
-          onClick={() => appState.dispatch({ type: VIEWS.CREATE_LIST_ITEM })}
-        />
-      </StyledViewListView>
-    </StyledView>
+    <StyledViewListView className="view-list-view">
+      {appState.state.currentList.hasItems && (
+        <div className="list-item-card-wrapper">
+          {appState.state.items.map((item) => {
+            if (item.listID === appState.state.currentList.id)
+              return (
+                <Card
+                  appState={appState}
+                  key={item.id}
+                  item={item}
+                  cardType={CARDS.LIST_ITEM}
+                  handleClick={(event) => {
+                    if (event.ctrlKey) {
+                      return appState.dispatch({
+                        type: APP_ACTIONS.DELETE_LIST_ITEM,
+                        payload: { id: item.id },
+                      });
+                    }
+                  }}
+                />
+              );
+            return null;
+          })}
+        </div>
+      )}
+      <CommonButton
+        text="Create Item"
+        onClick={() => appState.dispatch({ type: VIEWS.CREATE_LIST_ITEM })}
+      />
+    </StyledViewListView>
   );
 };
 
