@@ -3,7 +3,7 @@ import { APP_ACTIONS } from "../../hooks/useAppState";
 import useForm from "../../hooks/useForm";
 import { createListItemInitState } from "../../lib/initStates";
 import ListItem from "../../lib/listItem";
-import { validateCreateListItemForm } from "../../lib/utils";
+import { getNow, toLocale, validateCreateListItemForm } from "../../lib/utils";
 import CommonButton from "../buttons/CommonButton";
 import StyledForm from "../styles/forms/StyledForm";
 
@@ -71,6 +71,7 @@ const CreateListItemForm = ({ appState }) => {
           type="datetime-local"
           name="dueDatetime"
           id="dueDatetime"
+          min={toLocale(getNow())}
           value={values.dueDatetime}
           onChange={handleChange}
         />

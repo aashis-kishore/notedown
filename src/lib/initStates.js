@@ -1,4 +1,5 @@
 import { VIEWS } from "../hooks/useAppState";
+import { getNow, toLocale } from "./utils";
 
 export const appInitState = {
   darkTheme: true,
@@ -16,5 +17,5 @@ export const createListInitState = {
 export const createListItemInitState = {
   itemName: "",
   description: "",
-  dueDatetime: "",
+  dueDatetime: toLocale(getNow()),
 };

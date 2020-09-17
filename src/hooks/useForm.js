@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { getNow, toLocale } from "../lib/utils";
 
 const useForm = ({ initState, validate, onSubmit }) => {
   const [values, setValues] = useState(initState);
@@ -14,7 +15,28 @@ const useForm = ({ initState, validate, onSubmit }) => {
     formRendered.current = false;
   }, [initState, errors]);
 
+  const interval = useRef(null);
+  // update current dueDatetime in form
+  useEffect(() => {
+    if (values.dueDatetime) {
+      interval.current = setInterval(
+        () =>
+          setValues((prevState) => ({
+            ...prevState,
+            dueDatetime: toLocale(getNow()),
+          })),
+        1000
+      );
+
+      return () => clearInterval(interval.current);
+    }
+  }, [setValues, values.dueDatetime]);
+
   const handleChange = (event) => {
+    // clear interval to update value on change
+    if (event.target.name === "dueDatetime" && interval.current)
+      clearInterval(interval.current);
+
     const { target } = event;
     const { name, value } = target;
     event.persist();
@@ -26,7 +48,7 @@ const useForm = ({ initState, validate, onSubmit }) => {
     if (validate(values, setErrors)) onSubmit({ ...values });
   };
 
-  return [values, errors, handleChange, handleSubmit];
+  return [values, errors, handleChange, handleSubmit, setValues];
 };
 
 export default useForm;
