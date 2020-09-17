@@ -18,7 +18,7 @@ const useForm = ({ initState, validate, onSubmit }) => {
   const interval = useRef(null);
   // update current dueDatetime in form
   useEffect(() => {
-    if (values.dueDatetime) {
+    if (initState.dueDatetime) {
       interval.current = setInterval(
         () =>
           setValues((prevState) => ({
@@ -30,7 +30,7 @@ const useForm = ({ initState, validate, onSubmit }) => {
 
       return () => clearInterval(interval.current);
     }
-  }, [setValues, values.dueDatetime]);
+  }, [initState.dueDatetime]);
 
   const handleChange = (event) => {
     // clear interval to update value on change

@@ -51,8 +51,10 @@ export const validateCreateListItemForm = (values, setErrors) => {
   return isValid;
 };
 
-export const getNow = () => {
-  return new Date(Date.now()).toISOString().split(/:\d\d\.\d\d\dZ/)[0];
+export const getNow = (offset = 60) => {
+  return new Date(Date.now() + offset * 1000)
+    .toISOString()
+    .split(/:\d\d\.\d\d\dZ/)[0];
 };
 
 export const toLocale = (dueDatetime) => {
