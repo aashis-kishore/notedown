@@ -1,4 +1,5 @@
 import React from "react";
+import { APP_ACTIONS } from "../../hooks/useAppState";
 import useForm from "../../hooks/useForm";
 import { createListItemInitState } from "../../lib/initStates";
 import ListItem from "../../lib/listItem";
@@ -11,14 +12,17 @@ const CreateListItemForm = ({ appState }) => {
     initState: createListItemInitState,
     validate: validateCreateListItemForm,
     onSubmit: ({ itemName, description, dueDatetime }) =>
-      console.log(
-        new ListItem(
-          itemName,
-          description,
-          dueDatetime,
-          appState.state.currentList.id
-        )
-      ),
+      appState.dispatch({
+        type: APP_ACTIONS.ADD_LIST_ITEM,
+        payload: {
+          item: new ListItem(
+            itemName,
+            description,
+            dueDatetime,
+            appState.state.currentList.id
+          ),
+        },
+      }),
   });
 
   return (

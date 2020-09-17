@@ -27,6 +27,12 @@ const appReducer = (state, action) => {
         lists: [action.payload.list, ...state.lists],
         currentView: VIEWS.HOME,
       };
+    case APP_ACTIONS.ADD_LIST_ITEM:
+      return {
+        ...state,
+        items: [action.payload.item, ...state.items],
+        currentView: VIEWS.TOGGLE_VIEW_LIST,
+      };
 
     case VIEWS.HOME:
       return { ...state, currentView: VIEWS.HOME, currentList: null };

@@ -5,6 +5,7 @@ export const appInitState = {
   leftPaneHidden: false,
   currentView: VIEWS.HOME,
   lists: [],
+  items: [],
   currentList: null,
 };
 
