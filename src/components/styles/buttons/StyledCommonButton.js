@@ -8,6 +8,7 @@ const Button = (props) => (
 );
 
 const StyledCommonButton = styled(Button)`
+  user-select: none;
   cursor: pointer;
   outline: none;
   border: none;
