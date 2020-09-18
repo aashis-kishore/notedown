@@ -7,6 +7,7 @@ export const APP_ACTIONS = {
   ADD_LIST_ITEM: "add list item",
   DELETE_LIST: "delete list",
   DELETE_LIST_ITEM: "delete list item",
+  MARK_AS_DONE: "mark item as done",
 };
 
 export const VIEWS = {
@@ -17,7 +18,7 @@ export const VIEWS = {
 };
 
 const appReducer = (state, action) => {
-  let lists, list, listIndex, newCurrentView, items;
+  let lists, list, listIndex, newCurrentView, item, items;
   switch (action.type) {
     case APP_ACTIONS.TOGGLE_THEME:
       return { ...state, darkTheme: !state.darkTheme };
@@ -87,6 +88,11 @@ const appReducer = (state, action) => {
       }
 
       return { ...state, lists: state.lists, items: items, currentList: list };
+    case APP_ACTIONS.MARK_AS_DONE:
+      item = state.items.find((item) => item.id === action.payload.id);
+      item.isDone = true;
+
+      return { ...state, items: state.items };
 
     case VIEWS.HOME:
       return { ...state, currentView: VIEWS.HOME, currentList: null };

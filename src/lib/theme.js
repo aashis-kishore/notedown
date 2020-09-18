@@ -2,6 +2,7 @@ const COLORS = {
   PRIMARY: "#323232", // black
   SECONDARY: "#fff", // white
   TERTIARY: "#dd7777", // red
+  QUATERNARY: "#77dd77", // green
 };
 
 const commonButton = {
@@ -31,10 +32,18 @@ const listItemCard = {
   tertiary: COLORS.TERTIARY,
 };
 
+const chartsCard = {
+  primary: COLORS.TERTIARY,
+  secondary: COLORS.SECONDARY,
+  tertiary: COLORS.PRIMARY,
+  quaternary: COLORS.QUATERNARY,
+};
+
 export const darkTheme = {
   primary: COLORS.PRIMARY,
   secondary: COLORS.SECONDARY,
   tertiary: COLORS.TERTIARY,
+  quaternary: COLORS.QUATERNARY,
   commonButton: commonButton,
   toggleButton: {
     primary: toggleButton.primary,
@@ -43,12 +52,14 @@ export const darkTheme = {
   card: card,
   listCard: listCard,
   listItemCard: listItemCard,
+  chartsCard: chartsCard,
 };
 
 export const lightTheme = {
   primary: darkTheme.secondary,
   secondary: darkTheme.primary,
   tertiary: darkTheme.tertiary,
+  quaternary: darkTheme.quaternary,
   commonButton: {
     primary: commonButton.secondary,
     secondary: commonButton.primary,
@@ -71,5 +82,11 @@ export const lightTheme = {
     primary: darkTheme.listItemCard.secondary,
     secondary: darkTheme.listItemCard.primary,
     tertiary: darkTheme.listItemCard.tertiary,
+  },
+  chartsCard: {
+    primary: darkTheme.chartsCard.primary,
+    secondary: darkTheme.chartsCard.tertiary,
+    tertiary: darkTheme.chartsCard.secondary,
+    quaternary: darkTheme.chartsCard.quaternary,
   },
 };
