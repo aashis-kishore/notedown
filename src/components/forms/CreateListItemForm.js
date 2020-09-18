@@ -76,7 +76,7 @@ const CreateListItemForm = ({ appState }) => {
           onChange={handleChange}
         />
       </div>
-      <CommonButton text="Create List" type="submit" />
+      <CommonButton text="Create Item" type="submit" />
     </StyledForm>
   );
 };
