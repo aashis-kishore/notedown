@@ -1,7 +1,7 @@
 {
   "name": "notedown",
   "version": "0.1.0",
-  "homepage": "http://localhost/build",
+  "homepage": "https://aashis-kishore.github.io/notedown/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
