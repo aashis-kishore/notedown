@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { APP_ACTIONS } from "../../hooks/useAppState";
-import { getRemaining } from "../../lib/utils";
+import { getNow, getRemaining, toLocale } from "../../lib/utils";
 import { AppContext } from "../containers/App";
 import StyledChartsCard from "../styles/cards/StyledChartsCard";
 
@@ -21,7 +21,7 @@ const ChartsCard = ({ item, hasDueDatetime, hasDone }) => {
             </p>
           )}
         </div>
-        {hasDone && (
+        {hasDone && new Date(toLocale(getNow(0))) < new Date(item.dueDatetime) && (
           <div className="section2">
             <i
               className="fas fa-check fa-lg"
