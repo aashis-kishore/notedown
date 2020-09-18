@@ -12,9 +12,6 @@ const StyledCommonButton = styled(Button)`
   cursor: pointer;
   outline: none;
   border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
-  font-weight: 600;
   background: ${(props) => props.theme.commonButton.primary};
   color: ${(props) => props.theme.commonButton.secondary};
   border: 1px solid ${(props) => props.theme.commonButton.secondary};
@@ -24,6 +21,24 @@ const StyledCommonButton = styled(Button)`
     background: ${(props) => props.theme.commonButton.secondary};
     color: ${(props) => props.theme.commonButton.primary};
     border-radius: 2px;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  @media screen and (min-width: 769px) {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 `;
 

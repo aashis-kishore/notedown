@@ -12,7 +12,7 @@ const MiddlePane = () => {
   const appState = useContext(AppContext);
 
   const mplpastyle = useSpring(
-    mplpAnimationStyle(appState.state.leftPaneHidden)
+    mplpAnimationStyle(appState.state.leftPaneHidden, window.screen.width)
   );
   return (
     <StyledMiddlePane className="middle-pane">

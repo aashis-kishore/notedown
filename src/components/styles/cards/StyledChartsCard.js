@@ -7,35 +7,11 @@ const StyledChartsCard = styled(StyledCard)`
   background: ${(props) => props.theme.chartsCard.primary};
   color: ${(props) => props.theme.chartsCard.secondary};
   border-bottom: 1px solid ${(props) => props.theme.chartsCard.tertiary};
-  padding: 1rem;
   transition: all 0.3s ease;
 
   :hover {
     background: ${(props) => props.theme.chartsCard.secondary};
     color: ${(props) => props.theme.chartsCard.primary};
-  }
-
-  .charts-card-title {
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    padding-bottom: 1rem;
-  }
-
-  .charts-card-body {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .charts-card-description {
-    font-size: 1rem;
-    letter-spacing: 2px;
-    padding-bottom: 0.5rem;
-    color: ${(props) => props.theme.chartsCard.tertiary};
-  }
-
-  .charts-card-duedatetime {
-    letter-spacing: 2px;
-    color: ${(props) => props.theme.chartsCard.tertiary};
   }
 
   .fa-check:hover {
@@ -48,6 +24,97 @@ const StyledChartsCard = styled(StyledCard)`
 
   &.is-done:hover {
     background: ${(props) => props.theme.chartsCard.secondary};
+  }
+
+  .charts-card-title {
+    letter-spacing: 2px;
+  }
+
+  .charts-card-body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .charts-card-description {
+    letter-spacing: 2px;
+    color: ${(props) => props.theme.chartsCard.tertiary};
+  }
+
+  .charts-card-duedatetime {
+    letter-spacing: 2px;
+    color: ${(props) => props.theme.chartsCard.tertiary};
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.6rem;
+
+    .charts-card-title {
+      font-size: 1rem;
+      padding-bottom: 0.6rem;
+    }
+
+    .charts-card-description {
+      font-size: 0.6rem;
+      padding-bottom: 0.4rem;
+    }
+
+    .charts-card-duedatetime {
+      font-size: 0.6rem;
+    }
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 0.8rem;
+
+    .charts-card-title {
+      font-size: 1.2rem;
+      padding-bottom: 0.8rem;
+    }
+
+    .charts-card-description {
+      font-size: 0.6rem;
+      padding-bottom: 0.4rem;
+    }
+
+    .charts-card-duedatetime {
+      font-size: 0.6rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    padding: 0.8rem;
+
+    .charts-card-title {
+      font-size: 1.4rem;
+      padding-bottom: 1rem;
+    }
+
+    .charts-card-description {
+      font-size: 0.8rem;
+      padding-bottom: 0.6rem;
+    }
+
+    .charts-card-duedatetime {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    padding: 1rem;
+
+    .charts-card-title {
+      font-size: 1.6rem;
+      padding-bottom: 1rem;
+    }
+
+    .charts-card-description {
+      font-size: 1rem;
+      padding-bottom: 0.6rem;
+    }
+
+    .charts-card-duedatetime {
+      font-size: 1rem;
+    }
   }
 `;
 

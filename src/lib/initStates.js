@@ -4,7 +4,7 @@ import { getNow, toLocale } from "./utils";
 
 export const appInitState = {
   darkTheme: true,
-  leftPaneHidden: false,
+  leftPaneHidden: true,
   currentView: VIEWS.HOME,
   lists: [],
   items: [],

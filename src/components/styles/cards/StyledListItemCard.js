@@ -3,7 +3,6 @@ import StyledCard from "./StyledCard";
 
 const StyledListItemCard = styled(StyledCard)`
   border-bottom: 1px solid ${(props) => props.theme.listItemCard.tertiary};
-  padding: 1rem;
   background: ${(props) => props.theme.listItemCard.primary};
   color: ${(props) => props.theme.listItemCard.secondary};
   transition: all 0.3s ease;
@@ -14,14 +13,60 @@ const StyledListItemCard = styled(StyledCard)`
   }
 
   .list-item-card-title {
-    font-size: 1.4rem;
     letter-spacing: 2px;
     margin-bottom: 10px;
   }
 
   .list-item-card-description {
-    font-size: 0.8rem;
     letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0.6rem;
+
+    .list-item-card-title {
+      font-size: 1rem;
+    }
+
+    .list-item-card-description {
+      font-size: 0.6rem;
+    }
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 0.6rem;
+
+    .list-item-card-title {
+      font-size: 1.2rem;
+    }
+
+    .list-item-card-description {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    padding: 0.8rem;
+
+    .list-item-card-title {
+      font-size: 1.4rem;
+    }
+
+    .list-item-card-description {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    padding: 1rem;
+
+    .list-item-card-title {
+      font-size: 1.6rem;
+    }
+
+    .list-item-card-description {
+      font-size: 1.2rem;
+    }
   }
 `;
 
