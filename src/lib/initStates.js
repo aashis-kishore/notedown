@@ -1,6 +1,6 @@
-import { VIEWS } from "../hooks/useAppState";
-import { CHARTS_TABS } from "../hooks/useCharts";
-import { getNow, toLocale } from "./utils";
+import { VIEWS } from '../hooks/useAppState';
+import { CHARTS_TABS } from '../hooks/useCharts';
+import { getNow, toLocale } from './utils';
 
 export const appInitState = {
   darkTheme: true,
@@ -12,16 +12,16 @@ export const appInitState = {
 };
 
 export const createListInitState = {
-  listName: "",
+  listName: '',
 };
 
 export const createListItemInitState = {
-  itemName: "",
-  description: "",
+  itemName: '',
+  description: '',
   dueDatetime: toLocale(getNow()),
 };
 
 export const chartsInitState = {
   tick: 0,
-  currentTab: CHARTS_TABS.ALL,
+  currentTab: CHARTS_TABS.UPCOMING,
 };

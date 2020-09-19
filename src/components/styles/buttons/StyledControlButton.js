@@ -7,6 +7,10 @@ const Button = (props) => {
 
 const StyledControlButton = styled(Button)`
   cursor: pointer;
+
+  :hover {
+    color: ${(props) => props.theme.primary};
+  }
 `;
 
 export default StyledControlButton;

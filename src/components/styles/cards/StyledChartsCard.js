@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import StyledCard from "./StyledCard";
+import styled from 'styled-components';
+import StyledCard from './StyledCard';
 
 const StyledChartsCard = styled(StyledCard)`
   display: flex;
@@ -12,10 +12,6 @@ const StyledChartsCard = styled(StyledCard)`
   :hover {
     background: ${(props) => props.theme.chartsCard.secondary};
     color: ${(props) => props.theme.chartsCard.primary};
-  }
-
-  .fa-check:hover {
-    color: ${(props) => props.theme.primary};
   }
 
   &.is-done {
