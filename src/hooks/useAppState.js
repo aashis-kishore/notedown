@@ -1,24 +1,24 @@
-const { useReducer } = require("react");
+const { useReducer } = require('react');
 
 export const APP_ACTIONS = {
-  TOGGLE_THEME: "toggle theme",
-  TOGGLE_LEFT_PANE: "toggle left pane",
-  ADD_LIST: "add list",
-  ADD_LIST_ITEM: "add list item",
-  DELETE_LIST: "delete list",
-  DELETE_LIST_ITEM: "delete list item",
-  MARK_AS_DONE: "mark item as done",
+  TOGGLE_THEME: 'toggle theme',
+  TOGGLE_LEFT_PANE: 'toggle left pane',
+  ADD_LIST: 'add list',
+  ADD_LIST_ITEM: 'add list item',
+  DELETE_LIST: 'delete list',
+  DELETE_LIST_ITEM: 'delete list item',
+  MARK_AS_DONE: 'mark item as done',
 };
 
 export const VIEWS = {
-  HOME: "home view",
-  CREATE_LIST: "create list view",
-  TOGGLE_VIEW_LIST: "view list view",
-  CREATE_LIST_ITEM: "create list item view",
+  HOME: 'home view',
+  CREATE_LIST: 'create list view',
+  TOGGLE_VIEW_LIST: 'view list view',
+  CREATE_LIST_ITEM: 'create list item view',
 };
 
 const appReducer = (state, action) => {
-  let lists, list, listIndex, newCurrentView, item, items;
+  let lists, list, listIndex, newCurrentView, item, items, leftPaneHidden;
   switch (action.type) {
     case APP_ACTIONS.TOGGLE_THEME:
       return { ...state, darkTheme: !state.darkTheme };
@@ -106,7 +106,13 @@ const appReducer = (state, action) => {
         newCurrentView = VIEWS.TOGGLE_VIEW_LIST;
         list = state.lists.find((list) => list.id === action.payload.id);
       }
-      return { ...state, currentView: newCurrentView, currentList: list };
+      leftPaneHidden = window.screen.width <= 480 ? true : state.leftPaneHidden;
+      return {
+        ...state,
+        currentView: newCurrentView,
+        currentList: list,
+        leftPaneHidden: leftPaneHidden,
+      };
     case VIEWS.CREATE_LIST_ITEM:
       return { ...state, currentView: VIEWS.CREATE_LIST_ITEM };
     default:
