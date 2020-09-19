@@ -1,7 +1,10 @@
-import styled from "styled-components";
-import StyledCard from "./StyledCard";
+import styled from 'styled-components';
+import StyledCard from './StyledCard';
 
 const StyledListCard = styled(StyledCard)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: ${(props) => props.theme.listCard.secondary};
   color: ${(props) => props.theme.listCard.primary};
   border-bottom: 1px solid ${(props) => props.theme.listCard.tertiary};
@@ -11,6 +14,17 @@ const StyledListCard = styled(StyledCard)`
   &.card-active {
     background: ${(props) => props.theme.listCard.tertiary};
     color: ${(props) => props.theme.listCard.secondary};
+  }
+
+  .content {
+    width: 90%;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
   }
 
   .list-card-title {
