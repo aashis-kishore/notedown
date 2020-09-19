@@ -1,11 +1,11 @@
-import React, { createContext } from "react";
-import { ThemeProvider } from "styled-components";
-import useAppState from "../../hooks/useAppState";
-import { darkTheme, lightTheme } from "../../lib/theme";
-import AppStyle from "../styles/AppStyle";
-import BottomPane from "./panes/BottomPane";
-import MiddlePane from "./panes/MiddlePane";
-import TopPane from "./panes/TopPane";
+import React, { createContext } from 'react';
+import { ThemeProvider } from 'styled-components';
+import useAppState from '../../hooks/useAppState';
+import { darkTheme, lightTheme } from '../../lib/theme';
+import AppStyle from '../styles/AppStyle';
+import BottomPane from './panes/BottomPane';
+import MiddlePane from './panes/MiddlePane';
+import TopPane from './panes/TopPane';
 
 export const AppContext = createContext(true);
 
