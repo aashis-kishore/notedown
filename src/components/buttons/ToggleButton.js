@@ -2,9 +2,9 @@ import React from 'react';
 import StyledToggleButton from '../styles/buttons/StyledToggleButton';
 
 export const TOGGLE_BUTTON_TYPES = {
-  BARS: `fas fa-bars ${window.screen.width > 480 ? 'fa-lg' : ''}`,
-  MOON: `fas fa-moon ${window.screen.width > 480 ? 'fa-lg' : ''}`,
-  HOME: `fas fa-home ${window.screen.width > 480 ? 'fa-lg' : ''}`,
+  BARS: `fas fa-bars fa-lg`,
+  MOON: `fas fa-moon fa-lg`,
+  HOME: `fas fa-home fa-lg`,
 };
 
 const ToggleButton = (props) => {

@@ -2,9 +2,9 @@ import React from 'react';
 import StyledControlButton from '../styles/buttons/StyledControlButton';
 
 export const CONTROL_BUTTON_TYPES = {
-  CHECK: `fas fa-check ${window.screen.width > 480 ? 'fa-lg' : ''}`,
-  TIMES: `fas fa-times ${window.screen.width > 480 ? 'fa-lg' : ''}`,
-  PEN: `fas fa-pen ${window.screen.width > 480 ? '' : ''}`,
+  CHECK: `fas fa-check fa-lg`,
+  TIMES: `fas fa-times fa-lg`,
+  PEN: `fas fa-pen`,
 };
 
 const ControlButton = (props) => {

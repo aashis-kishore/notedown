@@ -44,7 +44,7 @@ const StyledListItemCard = styled(StyledCard)`
     }
 
     .list-item-card-description {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -56,7 +56,7 @@ const StyledListItemCard = styled(StyledCard)`
     }
 
     .list-item-card-description {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 
@@ -68,7 +68,7 @@ const StyledListItemCard = styled(StyledCard)`
     }
 
     .list-item-card-description {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 

@@ -50,12 +50,12 @@ const StyledChartsCard = styled(StyledCard)`
     }
 
     .charts-card-description {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       padding-bottom: 0.4rem;
     }
 
     .charts-card-duedatetime {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -68,12 +68,12 @@ const StyledChartsCard = styled(StyledCard)`
     }
 
     .charts-card-description {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       padding-bottom: 0.4rem;
     }
 
     .charts-card-duedatetime {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 
@@ -86,12 +86,12 @@ const StyledChartsCard = styled(StyledCard)`
     }
 
     .charts-card-description {
-      font-size: 0.8rem;
+      font-size: 1rem;
       padding-bottom: 0.6rem;
     }
 
     .charts-card-duedatetime {
-      font-size: 0.8rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -104,12 +104,12 @@ const StyledChartsCard = styled(StyledCard)`
     }
 
     .charts-card-description {
-      font-size: 1rem;
+      font-size: 1.2rem;
       padding-bottom: 0.6rem;
     }
 
     .charts-card-duedatetime {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
 `;

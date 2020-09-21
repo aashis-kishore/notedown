@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledForm = styled.form`
   display: flex;
@@ -27,6 +27,7 @@ const StyledForm = styled.form`
     color: ${(props) => props.theme.secondary};
     border-radius: 2px;
     letter-spacing: 2px;
+    padding: 0.5rem;
   }
 
   input {
@@ -37,6 +38,7 @@ const StyledForm = styled.form`
     border-radius: 2px;
     letter-spacing: 2px;
     width: 100%;
+    padding: 0.5rem;
   }
 
   @media screen and (max-width: 480px) {
@@ -44,12 +46,10 @@ const StyledForm = styled.form`
 
     label {
       font-size: 0.8rem;
-      padding: 0.3rem;
     }
 
     input {
       font-size: 1rem;
-      padding: 0.3rem;
     }
   }
 
@@ -58,12 +58,10 @@ const StyledForm = styled.form`
 
     label {
       font-size: 1rem;
-      padding: 0.3rem;
     }
 
     input {
       font-size: 1.2rem;
-      padding: 0.3rem;
     }
   }
 
@@ -72,12 +70,10 @@ const StyledForm = styled.form`
 
     label {
       font-size: 1.2rem;
-      padding: 0.5rem;
     }
 
     input {
       font-size: 1.4rem;
-      padding: 0.5rem;
     }
   }
 
@@ -86,12 +82,10 @@ const StyledForm = styled.form`
 
     label {
       font-size: 1.4rem;
-      padding: 0.5rem;
     }
 
     input {
       font-size: 1.6rem;
-      padding: 0.5rem;
     }
   }
 `;
