@@ -21,7 +21,8 @@ const StyledListItemCard = styled(StyledCard)`
 
   .controls {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     width: 10%;
   }

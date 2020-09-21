@@ -1,18 +1,45 @@
-import React from "react";
-import { APP_ACTIONS } from "../../hooks/useAppState";
-import useForm from "../../hooks/useForm";
-import { createListItemInitState } from "../../lib/initStates";
-import ListItem from "../../lib/listItem";
-import { getNow, toLocale, validateCreateListItemForm } from "../../lib/utils";
-import CommonButton from "../buttons/CommonButton";
-import StyledForm from "../styles/forms/StyledForm";
+import React from 'react';
+import { APP_ACTIONS } from '../../hooks/useAppState';
+import useForm from '../../hooks/useForm';
+import { createListItemInitState } from '../../lib/initStates';
+import ListItem from '../../lib/listItem';
+import {
+  getNow,
+  hasExpired,
+  toLocale,
+  validateCreateListItemForm,
+} from '../../lib/utils';
+import CommonButton from '../buttons/CommonButton';
+import StyledForm from '../styles/forms/StyledForm';
 
 const CreateListItemForm = ({ appState }) => {
+  const initState = appState.state.currentItem
+    ? appState.state.currentItem
+    : createListItemInitState;
+
   const [values, errors, handleChange, handleSubmit] = useForm({
-    initState: createListItemInitState,
+    initState: initState,
     validate: validateCreateListItemForm,
-    onSubmit: ({ itemName, description, dueDatetime }) =>
-      appState.dispatch({
+    onSubmit: ({ id, itemName, description, dueDatetime }) => {
+      if (appState.state.currentItem) {
+        const newDueDatetime = !hasExpired(dueDatetime)
+          ? dueDatetime
+          : toLocale(getNow());
+
+        return appState.dispatch({
+          type: APP_ACTIONS.UPDATE_LIST_ITEM,
+          payload: {
+            item: {
+              id,
+              itemName,
+              description,
+              dueDatetime: newDueDatetime,
+            },
+          },
+        });
+      }
+
+      return appState.dispatch({
         type: APP_ACTIONS.ADD_LIST_ITEM,
         payload: {
           item: new ListItem(
@@ -22,14 +49,15 @@ const CreateListItemForm = ({ appState }) => {
             appState.state.currentList.id
           ),
         },
-      }),
+      });
+    },
   });
 
   return (
     <StyledForm className="create-list-item-form" onSubmit={handleSubmit}>
       <div className="item-name-field">
-        <label htmlFor="itemName" className={errors.itemName ? "error" : ""}>
-          {errors.itemName ? errors.itemName : "Item Name"}
+        <label htmlFor="itemName" className={errors.itemName ? 'error' : ''}>
+          {errors.itemName ? errors.itemName : 'Item Name'}
         </label>
         <br />
         <input
@@ -45,9 +73,9 @@ const CreateListItemForm = ({ appState }) => {
       <div className="description-field">
         <label
           htmlFor="description"
-          className={errors.description ? "error" : ""}
+          className={errors.description ? 'error' : ''}
         >
-          {errors.description ? errors.description : "Description"}
+          {errors.description ? errors.description : 'Description'}
         </label>
         <br />
         <input
@@ -62,9 +90,9 @@ const CreateListItemForm = ({ appState }) => {
       <div className="due-datetime-field">
         <label
           htmlFor="dueDatetime"
-          className={errors.dueDatetime ? "error" : ""}
+          className={errors.dueDatetime ? 'error' : ''}
         >
-          {errors.dueDatetime ? errors.dueDatetime : "Due By"}
+          {errors.dueDatetime ? errors.dueDatetime : 'Due By'}
         </label>
         <br />
         <input

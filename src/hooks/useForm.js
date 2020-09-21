@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { getNow, toLocale } from "../lib/utils";
+import { useEffect, useRef, useState } from 'react';
+import { getNow, toLocale } from '../lib/utils';
 
 const useForm = ({ initState, validate, onSubmit }) => {
   const [values, setValues] = useState(initState);
@@ -34,7 +34,7 @@ const useForm = ({ initState, validate, onSubmit }) => {
 
   const handleChange = (event) => {
     // clear interval to update value on change
-    if (event.target.name === "dueDatetime" && interval.current)
+    if (event.target.name === 'dueDatetime' && interval.current)
       clearInterval(interval.current);
 
     const { target } = event;

@@ -17,14 +17,14 @@ const StyledListCard = styled(StyledCard)`
   }
 
   .content {
-    width: 90%;
+    width: 85%;
   }
 
   .controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 15%;
   }
 
   .list-card-title {

@@ -9,6 +9,7 @@ export const appInitState = {
   lists: [],
   items: [],
   currentList: null,
+  currentItem: null,
 };
 
 export const createListInitState = {

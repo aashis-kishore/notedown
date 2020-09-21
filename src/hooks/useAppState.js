@@ -8,6 +8,7 @@ export const APP_ACTIONS = {
   DELETE_LIST: 'delete list',
   DELETE_LIST_ITEM: 'delete list item',
   MARK_AS_DONE: 'mark item as done',
+  UPDATE_LIST_ITEM: 'update list item',
 };
 
 export const VIEWS = {
@@ -18,7 +19,14 @@ export const VIEWS = {
 };
 
 const appReducer = (state, action) => {
-  let lists, list, listIndex, newCurrentView, item, items, leftPaneHidden;
+  let lists,
+    list,
+    listIndex,
+    newCurrentView,
+    item,
+    items,
+    leftPaneHidden,
+    currentItem;
   switch (action.type) {
     case APP_ACTIONS.TOGGLE_THEME:
       return { ...state, darkTheme: !state.darkTheme };
@@ -93,11 +101,24 @@ const appReducer = (state, action) => {
       item.isDone = true;
 
       return { ...state, items: state.items };
+    case APP_ACTIONS.UPDATE_LIST_ITEM:
+      item = state.items.find((item) => item.id === action.payload.item.id);
+      item.itemName = action.payload.item.itemName;
+      item.description = action.payload.item.description;
+      item.dueDatetime = action.payload.item.dueDatetime;
+      item.isDone = false;
+
+      return { ...state, currentView: VIEWS.TOGGLE_VIEW_LIST };
 
     case VIEWS.HOME:
-      return { ...state, currentView: VIEWS.HOME, currentList: null };
+      return {
+        ...state,
+        currentView: VIEWS.HOME,
+        currentList: null,
+        currentItem: null,
+      };
     case VIEWS.CREATE_LIST:
-      return { ...state, currentView: VIEWS.CREATE_LIST };
+      return { ...state, currentView: VIEWS.CREATE_LIST, currentItem: null };
     case VIEWS.TOGGLE_VIEW_LIST:
       if (state.currentList && state.currentList.id === action.payload.id) {
         newCurrentView = VIEWS.HOME;
@@ -107,14 +128,23 @@ const appReducer = (state, action) => {
         list = state.lists.find((list) => list.id === action.payload.id);
       }
       leftPaneHidden = window.screen.width <= 480 ? true : state.leftPaneHidden;
+
       return {
         ...state,
         currentView: newCurrentView,
         currentList: list,
         leftPaneHidden: leftPaneHidden,
+        currentItem: null,
       };
     case VIEWS.CREATE_LIST_ITEM:
-      return { ...state, currentView: VIEWS.CREATE_LIST_ITEM };
+      currentItem =
+        action.payload && action.payload.item ? action.payload.item : null;
+
+      return {
+        ...state,
+        currentView: VIEWS.CREATE_LIST_ITEM,
+        currentItem: currentItem,
+      };
     default:
       return state;
   }
